@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechExpress - Home</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>TechExpress</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="carrinho.html">Carrinho (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Produtos em Destaque</h2>
+    <div class="produtos">
+      <div class="produto">
+        <img src="img/notebook.jpg" alt="Notebook">
+        <h3>Notebook Gamer</h3>
+        <p>R$ 4.500,00</p>
+        <button onclick="addToCart('Notebook Gamer', 4500)">Comprar</button>
+      </div>
+      <div class="produto">
+        <img src="img/smartphone.jpg" alt="Smartphone">
+        <h3>Smartphone Top</h3>
+        <p>R$ 2.200,00</p>
+        <button onclick="addToCart('Smartphone Top', 2200)">Comprar</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

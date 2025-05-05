@@ -69,3 +69,50 @@ body {
     margin: 20px;
     border-radius: 5px;
   }
+
+  /* Estilos do Painel Admin */
+.admin-container {
+    display: flex;
+    min-height: 80vh;
+  }
+  
+  .admin-menu {
+    width: 200px;
+    background: #333;
+    padding: 20px;
+  }
+  
+  .admin-menu button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .admin-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .admin-section {
+    padding: 20px;
+  }
+  
+  .produto-admin, .pedido, .usuario {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
+  #form-produto input, #form-produto select {
+    display: block;
+    margin: 10px 0;
+    padding: 8px;
+    width: 100%;
+    max-width: 400px;
+  }

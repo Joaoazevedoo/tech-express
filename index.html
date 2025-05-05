@@ -47,6 +47,7 @@
     Admin
   </button>
 
+  <!-- Script do Admin -->
   <script>
     function loginAdmin() {
       const senha = prompt("Digite a senha de administrador:");
@@ -56,6 +57,24 @@
         alert("Senha incorreta!");
       }
     }
+  </script>
+
+  <!-- Script do carrinho -->
+  <script>
+    function addToCart(nome, preco) {
+      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      carrinho.push({ nome, preco });
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      updateCartCount();
+      alert(`${nome} foi adicionado ao carrinho!`);
+    }
+
+    function updateCartCount() {
+      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      document.getElementById('cart-count').textContent = carrinho.length;
+    }
+
+    document.addEventListener('DOMContentLoaded', updateCartCount);
   </script>
 </body>
 </html>

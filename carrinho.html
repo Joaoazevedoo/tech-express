@@ -17,15 +17,53 @@
 
   <main>
     <h2>Seu Carrinho</h2>
-    <div id="cart-items">
-      <!-- Itens do carrinho serão carregados aqui -->
-    </div>
-    <div id="cart-total">
-      <p>Total: R$ <span id="total">0,00</span></p>
-      <a href="checkout.html" class="checkout-btn">Finalizar Compra</a>
-    </div>
+    <div id="carrinho-container"></div>
+    <p id="total"></p>
+
+    <!-- Botão de Finalizar Compra -->
+    <button id="finalizar-compra" style="display: none;">Finalizar Compra</button>
   </main>
 
-  <script src="js/script.js"></script>
+  <script>
+    function updateCartCount() {
+      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      document.getElementById('cart-count').textContent = carrinho.length;
+    }
+
+    function exibirCarrinho() {
+      const container = document.getElementById("carrinho-container");
+      const finalizarBtn = document.getElementById("finalizar-compra");
+      let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+      if (carrinho.length === 0) {
+        container.innerHTML = "<p>Seu carrinho está vazio.</p>";
+        finalizarBtn.style.display = "none";
+        return;
+      }
+
+      let html = "<ul>";
+      let total = 0;
+      carrinho.forEach((item) => {
+        html += `<li>${item.nome} - R$ ${item.preco.toFixed(2).replace('.', ',')}</li>`;
+        total += item.preco;
+      });
+      html += "</ul>";
+      container.innerHTML = html;
+
+      document.getElementById("total").textContent = `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
+      finalizarBtn.style.display = "inline-block";
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      updateCartCount();
+      exibirCarrinho();
+    });
+
+    document.getElementById("finalizar-compra").addEventListener("click", () => {
+      alert("Compra finalizada com sucesso!");
+      localStorage.removeItem("carrinho");
+      window.location.reload();
+    });
+  </script>
 </body>
 </html>

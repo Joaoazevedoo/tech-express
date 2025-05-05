@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>TechExpress - Painel Admin</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Painel Administrativo 🔒</h1>
+    <nav>
+      <a href="index.html">Voltar à Loja</a>
+      <button onclick="logout()">Sair</button>
+    </nav>
+  </header>
+
+  <main class="admin-container">
+    <aside class="admin-menu">
+      <button onclick="showSection('gerenciar-produtos')">📦 Gerenciar Produtos</button>
+      <button onclick="showSection('visualizar-pedidos')">📋 Pedidos</button>
+      <button onclick="showSection('gerenciar-usuarios')">👥 Usuários</button>
+    </aside>
+
+    <section class="admin-content">
+      <!-- Seção de Produtos -->
+      <div id="gerenciar-produtos" class="admin-section">
+        <h2>📦 Gerenciar Produtos</h2>
+        <form id="form-produto">
+          <input type="text" id="prod-nome" placeholder="Nome" required>
+          <input type="number" id="prod-preco" placeholder="Preço" step="0.01" required>
+          <select id="prod-categoria" required>
+            <option value="">Categoria</option>
+            <option value="notebooks">Notebooks</option>
+            <option value="smartphones">Smartphones</option>
+            <option value="acessorios">Acessórios</option>
+          </select>
+          <button type="submit">Adicionar Produto</button>
+        </form>
+        <div id="lista-produtos-admin"></div>
+      </div>
+
+      <!-- Seção de Pedidos -->
+      <div id="visualizar-pedidos" class="admin-section" style="display:none">
+        <h2>📋 Últimos Pedidos</h2>
+        <div id="lista-pedidos"></div>
+      </div>
+
+      <!-- Seção de Usuários -->
+      <div id="gerenciar-usuarios" class="admin-section" style="display:none">
+        <h2>👥 Usuários Cadastrados</h2>
+        <div id="lista-usuarios"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
